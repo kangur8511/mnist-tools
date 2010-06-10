@@ -91,7 +91,7 @@ public class MnistManager {
     /**
      * Reads the current label.
      * 
-     * @return
+     * @return int
      * @throws IOException
      */
     public int readLabel() throws IOException {

@@ -13,8 +13,8 @@ public class MnistLabelFile extends MnistDbFile {
     /**
      * Creates new MNIST database label file ready for reading.
      * 
-     * @param the
-     *            system-dependent filename
+     * @param name
+     *            the system-dependent filename
      * @param mode
      *            the access mode
      * @throws IOException

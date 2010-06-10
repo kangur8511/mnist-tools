@@ -18,8 +18,8 @@ public abstract class MnistDbFile extends RandomAccessFile {
     /**
      * Creates new instance and reads the header information.
      * 
-     * @param the
-     *            system-dependent filename
+     * @param name
+     *            the system-dependent filename
      * @param mode
      *            the access mode
      * @throws IOException

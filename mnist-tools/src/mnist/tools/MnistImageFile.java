@@ -16,8 +16,8 @@ public class MnistImageFile extends MnistDbFile {
     /**
      * Creates new MNIST database image file ready for reading.
      * 
-     * @param the
-     *            system-dependent filename
+     * @param name
+     *            the system-dependent filename
      * @param mode
      *            the access mode
      * @throws IOException
@@ -82,7 +82,7 @@ public class MnistImageFile extends MnistDbFile {
     /**
      * Number of columns per image.
      * 
-     * @return
+     * @return int
      */
     public int getCols() {
         return cols;
