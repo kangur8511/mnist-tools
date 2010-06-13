@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="mnist-tools" default="jar" basedir=".">
+  <!-- set global properties for this build -->
+  <property name="src" value="src"/>
+  <property name="lib" value="lib" />
+  <property name="build" value="build"/>
+  <property name="dist"  value="dist"/>
+  <property name="doc"  value="doc"/>
+
+   <!-- general classpath definition, incl. CLASSPATH env. variable,
+   // but jars in lib directory have precedence over the CLASSPATH variable -->
+  <path id="project.class.path">
+    <pathelement location="${build}/classes"/>
+    <pathelement path="${java.class.path}" />
+  </path>
+
+  <!-- Compile the java code from ${src} into ${build}/classes -->
+  <target name="compile" 
+   description="Compile and deposit class files in build/classes">
+   	<mkdir dir="${build}/classes"/>
+    <javac srcdir="${src}"
+      fork="yes"
+      destdir="${build}/classes"
+      optimize="${optimization}"
+      debug="${debug}"
+      deprecation="${deprecation}"
+      source="1.5" target="1.5">
+
+      <classpath refid="project.class.path" /> 
+    </javac>
+		<delete dir="${classes}/mnist.tools.test"/>
+  </target>
+	
+	<!-- make a jar file containing the all classes -->
+  <target name="jar" depends="compile"
+   description="Create a jar file containing classes">
+   	<mkdir dir="${dist}"/>
+     <jar jarfile="${dist}/mnist-tools.jar"
+      basedir="${build}/classes"/>
+   </target>
+	 
+	 <target name="dist" description="Creates the distribution archive from artifacts from 'dist' folder." depends="jar, docs">
+	 	 <copy todir="${dist}/src" >
+       <fileset dir="${src}"/>
+    </copy>
+		<copy todir="${dist}/doc" >
+       <fileset dir="${doc}"/>
+    </copy>
+		
+	 	 <zip destfile="mnist-tools.zip" 
+     basedir="${dist}"/>
+	 	</target>
+
+  <!-- Make the javadocs -->
+  <target name="docs" 
+          description="Make javadocs into ./doc">
+    <mkdir dir="${doc}"/>
+    <javadoc sourcepath="${src}"
+             classpathref="project.class.path"
+             destdir="${doc}" 
+             packagenames="mnist.*"
+             Author="yes" 
+             Public="yes" 
+             maxmemory="256m"/>
+  </target> 
+
+  <!-- Clean -->
+  <target name="clean"
+   description="Removes the build and dist">
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+		<delete dir="${doc}"/>
+		<delete file="mnist-tools.zip"/>
+  </target>
+</project>
+
