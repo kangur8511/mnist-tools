@@ -14,10 +14,10 @@ public class Test {
     }
 
     public static void testParser() throws IOException {
-        MnistManager m = new MnistManager("/home/apankov/Desktop/Uni/IAS/assignments/NN/t10k-images.idx3-ubyte",
+/*        MnistManager m = new MnistManager("/home/apankov/Desktop/Uni/IAS/assignments/NN/t10k-images.idx3-ubyte",
                 "/home/apankov/Desktop/Uni/IAS/assignments/NN/t10k-labels.idx1-ubyte");
         m.copyToFile(10, "/home/apankov/Desktop/Uni/IAS/assignments/NN/t10k-images-small.idx3-ubyte",
-                "/home/apankov/Desktop/Uni/IAS/assignments/NN/t10k-labels.idx1-ubyte");
+                "/home/apankov/Desktop/Uni/IAS/assignments/NN/t10k-labels.idx1-ubyte");*/
 
         /*m.setCurrent(740);
         int[][] image = m.readImage();
