@@ -1,0 +1,2 @@
+This code provides useful tools for working with the MNIST database of handwritten digits - http://yann.lecun.com/exdb/mnist/.
+It concerns mainly parsing the images and labels files and exporting to ppm format.
